@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Result</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #43cea2, #185a9d);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .result-card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 350px;
+        }
+
+        .result-card h1 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .result-text {
+            font-size: 22px;
+            font-weight: bold;
+            padding: 12px;
+            border-radius: 6px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        /* Color depending on result text */
+        .positive {
+            background-color: #ff4d4d;
+            color: white;
+        }
+
+        .negative {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .home-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .home-btn:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="result-card">
+        <h1>Prediction Result</h1>
+
+        <!-- Result Output -->
+        {% if result == "Diabetic" %}
+        <div class="result-text positive">{{ result }}</div>
+        {% else %}
+        <div class="result-text negative">{{ result }}</div>
+        {% endif %}
+
+        <br>
+        <a href="/" style="text-decoration:none;">
+            <button class="home-btn">Go to Home</button>
+        </a>
+    </div>
+
+</body>
+</html>

@@ -1,35 +1,112 @@
 <!DOCTYPE html>
-<html >
+<html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <title>ML API</title>
+  <title>Diabetes Prediction</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #43cea2, #185a9d);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
 
+    .login {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      width: 350px;
+    }
+
+    .login h1 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .login input {
+      width: 100%;
+      padding: 10px;
+      margin: 6px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .predict-btn {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .predict-btn:hover {
+      background-color: #0056b3;
+    }
+
+    .home-btn {
+      background-color: #28a745;
+      color: white;
+      margin-top: 8px;
+    }
+
+    .home-btn:hover {
+      background-color: #1e7e34;
+    }
+
+    .result {
+      margin-top: 15px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #222;
+    }
+  </style>
 </head>
 
 <body>
- <div class="login">
-	<h1>Diabetes Prediction</h1>
-    <form action="{{ url_for('predict_datapoint')}}" method="post">
-      <input type="text" name="Pregnancies" placeholder="Pregnancies" required="required" /><br>
-    	<input type="text" name="Glucose" placeholder="Glucose" required="required" /><br>
-        <input type="text" name="BloodPressure" placeholder="BloodPressure" required="required" /><br>
-        <input type="text" name="SkinThickness" placeholder="SkinThickness" required="required" /><br>
-        <input type="text" name="Insulin" placeholder="Insulin" required="required" /><br>
-        <input type="text" name="BMI" placeholder="BMI" required="required" /><br>
-        <input type="text" name="DiabetesPedigreeFunction" placeholder="DiabetesPedigreeFunction" required="required" /><br>
-        <input type="text" name="Age" placeholder="Age" required="required" /><br>
 
+  <div class="login">
+    <h1>Diabetes Prediction</h1>
 
-        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    <form action="{{ url_for('predict_datapoint') }}" method="post">
+      <input type="text" name="Pregnancies" placeholder="Pregnancies" required />
+      <input type="text" name="Glucose" placeholder="Glucose" required />
+      <input type="text" name="BloodPressure" placeholder="BloodPressure" required />
+      <input type="text" name="SkinThickness" placeholder="SkinThickness" required />
+      <input type="text" name="Insulin" placeholder="Insulin" required />
+      <input type="text" name="BMI" placeholder="BMI" required />
+      <input type="text" name="DiabetesPedigreeFunction" placeholder="DiabetesPedigreeFunction" required />
+      <input type="text" name="Age" placeholder="Age" required />
+
+      <button type="submit" class="btn predict-btn">Predict</button>
     </form>
-<body>
 
-   <br>
-   <br>
+    <!-- Go to Home Button -->
+    <a href="/" style="text-decoration:none;">
+      <button class="btn home-btn">Go to Home</button>
+    </a>
 
-
- </div>
- {{result}}
+    <!-- Prediction Result -->
+    <div class="result">
+      {{ result }}
+    </div>
+  </div>
 
 </body>
+
 </html>
